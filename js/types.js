@@ -79,6 +79,21 @@ export type ViewPagerProps = $ReadOnly<{|
   pageMargin?: ?number,
 
   /**
+   * When it is value is 0.0 <= w <= 1.0, previous and next pages will be visible
+   */
+  pageWidth?: ?number,
+
+  /**
+   * This is necessary when pageWidth is specified. If not, UI looks ugly
+   */
+  paddingLeft?: ?number,
+
+  /**
+   * This is necessary when pageWidth is specified. If not, UI looks ugly
+   */
+  paddingRight?: ?number,
+
+  /**
    * Determines whether the keyboard gets dismissed in response to a drag.
    *   - 'none' (the default), drags do not dismiss the keyboard.
    *   - 'on-drag', the keyboard is dismissed when a drag begins.

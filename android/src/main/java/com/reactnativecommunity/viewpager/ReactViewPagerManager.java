@@ -117,4 +117,34 @@ public class ReactViewPagerManager extends ViewGroupManager<ReactViewPager> {
     pager.setPageMargin((int) PixelUtil.toPixelFromDIP(margin));
   }
 
+  @ReactProp(name = "pageWidth", defaultFloat = 1)
+  public void setPageWidth(ReactViewPager pager, float width) {
+    if (width < 0 || width > 1) {
+      throw new IllegalArgumentException("PageWidth must be 0.0 <= width <= 1.0");
+    }
+
+    pager.setPageWidth(width);
+
+    if (width < 1.0f) {
+      pager.setOffscreenPageLimit((int) Math.ceil(1 / width));
+    }
+  }
+
+  @ReactProp(name = "paddingLeft", defaultFloat = 0)
+  public void setPaddingLeft(ReactViewPager pager, float paddingLeft) {
+    pager.setPadding(
+            (int) PixelUtil.toPixelFromDIP(paddingLeft),
+            pager.getPaddingTop(),
+            pager.getPaddingRight(),
+            pager.getPaddingBottom());
+  }
+
+  @ReactProp(name = "paddingRight", defaultFloat = 0)
+  public void setPaddingLeft(ReactViewPager pager, float paddingRight) {
+    pager.setPadding(
+            pager.getPaddingLeft(),
+            pager.getPaddingTop(),
+            (int) PixelUtil.toPixelFromDIP(paddingRight),
+            pager.getPaddingBottom());
+  }
 }
