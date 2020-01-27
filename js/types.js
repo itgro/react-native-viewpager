@@ -92,6 +92,11 @@ export type ViewPagerProps = $ReadOnly<{|
    * This is necessary when pageWidth is specified. If not, UI looks ugly
    */
   paddingRight?: ?number,
+                                        
+  /**
+   *
+   */
+  clipToPadding?: ?boolean,
 
   /**
    * Determines whether the keyboard gets dismissed in response to a drag.
