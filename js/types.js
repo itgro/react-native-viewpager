@@ -97,6 +97,11 @@ export type ViewPagerProps = $ReadOnly<{|
    *
    */
   clipToPadding?: ?boolean,
+                                        
+  /**
+   *
+   */
+  offscreenPageLimit?: ?number,
 
   /**
    * Determines whether the keyboard gets dismissed in response to a drag.
