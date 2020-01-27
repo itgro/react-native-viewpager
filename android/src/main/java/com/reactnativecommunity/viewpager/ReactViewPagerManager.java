@@ -140,7 +140,7 @@ public class ReactViewPagerManager extends ViewGroupManager<ReactViewPager> {
   }
 
   @ReactProp(name = "paddingRight", defaultFloat = 0)
-  public void setPaddingLeft(ReactViewPager pager, float paddingRight) {
+  public void setPaddingRight(ReactViewPager pager, float paddingRight) {
     pager.setPadding(
             pager.getPaddingLeft(),
             pager.getPaddingTop(),
