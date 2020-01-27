@@ -254,6 +254,10 @@ public class ReactViewPager extends ViewPager {
     return getAdapter().getViewAt(index);
   }
 
+  /*package*/ void setPageWidth(float width) {
+    getAdapter().setPageWidth(width);
+  }
+
   public void setViews(List<View> views) {
     getAdapter().setViews(views);
   }
