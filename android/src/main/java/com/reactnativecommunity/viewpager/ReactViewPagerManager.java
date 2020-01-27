@@ -147,4 +147,9 @@ public class ReactViewPagerManager extends ViewGroupManager<ReactViewPager> {
             (int) PixelUtil.toPixelFromDIP(paddingRight),
             pager.getPaddingBottom());
   }
+  
+  @ReactProp(name = "clipToPadding", defaultBoolean = false)
+  public void setClipToPadding(ReactViewPager pager, boolean clipToPadding) {
+    pager.setClipToPadding(clipToPadding);
+  }
 }
