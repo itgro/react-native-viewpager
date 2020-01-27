@@ -124,10 +124,15 @@ public class ReactViewPagerManager extends ViewGroupManager<ReactViewPager> {
     }
 
     pager.setPageWidth(width);
+  }
 
-    if (width < 1.0f) {
-      pager.setOffscreenPageLimit((int) Math.ceil(1 / width));
+  @ReactProp(name = "offscreenPageLimit", defaultInt = 1)
+  public void setOffscreenPageLimit(ReactViewPager pager, float offscreenPageLimit) {
+    if (offscreenPageLimit <= 0) {
+      throw new IllegalArgumentException("offscreenPageLimit must be greater then zero");
     }
+    
+    pager.setOffscreenPageLimit(3);
   }
 
   @ReactProp(name = "paddingLeft", defaultFloat = 0)
@@ -148,7 +153,7 @@ public class ReactViewPagerManager extends ViewGroupManager<ReactViewPager> {
             pager.getPaddingBottom());
   }
   
-  @ReactProp(name = "clipToPadding", defaultBoolean = false)
+  @ReactProp(name = "clipToPadding", defaultBoolean = true)
   public void setClipToPadding(ReactViewPager pager, boolean clipToPadding) {
     pager.setClipToPadding(clipToPadding);
   }
