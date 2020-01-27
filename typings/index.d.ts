@@ -86,6 +86,11 @@ export interface ViewPagerProps extends ReactNative.ViewProps {
     clipToPadding?: boolean;
     
     /**
+     *
+     */
+    offscreenPageLimit?: number;
+    
+    /**
     * iOS only
     */
     orientation?: 'horizontal' | 'vertical',
