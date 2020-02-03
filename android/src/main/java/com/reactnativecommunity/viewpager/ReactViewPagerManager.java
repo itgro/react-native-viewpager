@@ -9,6 +9,7 @@ package com.reactnativecommunity.viewpager;
 
 import java.util.Map;
 
+import android.os.Build;
 import android.view.View;
 
 import com.facebook.infer.annotation.Assertions;
@@ -142,6 +143,25 @@ public class ReactViewPagerManager extends ViewGroupManager<ReactViewPager> {
             pager.getPaddingTop(),
             pager.getPaddingRight(),
             pager.getPaddingBottom());
+  }
+
+  @ReactProp(name = "overScrollMode", defaultFloat = 0)
+  public void setOverScrollMode(ReactViewPager pager, String overScrollMode) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+      int intMode;
+
+      if (overScrollMode.toLowerCase().equals("always")) {
+        intMode = View.OVER_SCROLL_ALWAYS;
+      } else if (overScrollMode.toLowerCase().equals("never")) {
+        intMode = View.OVER_SCROLL_NEVER;
+      } else if (overScrollMode.toLowerCase().equals("if_content_scrolls")) {
+        intMode = View.OVER_SCROLL_IF_CONTENT_SCROLLS;
+      } else {
+        throw new IllegalArgumentException("overScrollMode must be one of \"never\", \"never\", \"if_content_scrolls\"");
+      }
+
+      pager.setOverScrollMode(intMode);
+    }
   }
 
   @ReactProp(name = "paddingRight", defaultFloat = 0)
